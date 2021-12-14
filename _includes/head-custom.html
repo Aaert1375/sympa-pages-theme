@@ -9,6 +9,20 @@
 {% endcomment %}
 
 <style>
+    {% comment %} Aside nav (see aside.html) {% endcomment %}
+    nav.toc {
+        white-space: nowrap;
+        overflow-x: hidden;
+        text-overflow: ellipsis;
+
+        margin: 1em 0.5em;
+        padding: 0 0.5em;
+        background-color:#f2f6f9;
+        border:1px solid #005ab2;
+        border-radius: 5px;
+    }
+
+    {% comment %} ToC (see toc.html) {% endcomment %}
     .pagetoc {
         float: right;
         clear: right;
@@ -52,6 +66,13 @@
     .toc-switch:checked ~ p, .toc-switch:checked ~ ul {
         display: block;
     }
+
+    @media print, screen and (max-width: 640px) {
+      nav.pagetoc {
+        display: none;
+      }
+    }
+
 </style>
 
 <!-- end custom-head.html -->

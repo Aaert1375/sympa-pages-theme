@@ -1,0 +1,349 @@
+{% if page.path == 'index.md' or page.path contains 'manual/' or page.path contains 'help/' or page.path contains 'man/' or page.path contains 'security/' %}
+    {% assign aside_nav = true %}
+
+        <nav class="toc show-for-medium">
+          <p>
+          <a href="/manual/">
+            {% if page.path == 'manual/index.md' %}<strong>{% endif %}
+            Sympa Administration Manual
+            {% if page.path == 'manual/index.md' %}</strong>{% endif %}
+          </a>
+          </p>
+
+        {% if page.path contains 'manual/' %}
+          <ol>
+            <li>
+            <a href="/manual/scope.html">
+              {% if page.path == 'manual/scope.md' %}<strong>{% endif %}
+              Audiences and scope
+              {% if page.path == 'manual/scope.md' %}</strong>{% endif %}
+            </a>
+            </li>
+            <li>
+            <a href="/manual/requirements.html">
+              {% if page.path == 'manual/requirements.md' %}<strong>{% endif %}
+              Requirements
+              {% if page.path == 'manual/requirements.md' %}</strong>{% endif %}
+            </a>
+            </li>
+            <li>
+            <a href="/manual/install.html">
+              {% if page.path == 'manual/install.md' %}<strong>{% endif %}
+              Installing Sympa
+              {% if page.path == 'manual/install.md' %}</strong>{% endif %}
+            </a>
+            {% if page.path == 'manual/install.md' or page.path contains 'manual/install/' %}
+              <ol>
+              <li>
+              <a href="/manual/install/install-sympa-distribution.html">
+                {% if page.path == 'manual/install/install-sympa-distribution.md' %}<strong>{% endif %}
+                Install Sympa distribution
+                {% if page.path == 'manual/install/install-sympa-distribution.md' %}</strong>{% endif %}
+              </a>
+              {% if page.path contains 'manual/install/install-sympa-distribution' %}
+                <ol>
+                <li>
+                <a href="/manual/install/install-sympa-distribution-debian.html">
+                  {% if page.path == 'manual/install/install-sympa-distribution-debian.md' %}<strong>{% endif %}
+                  Debian package
+                  {% if page.path == 'manual/install/install-sympa-distribution-debian.md' %}</strong>{% endif %}
+                </a>
+                </li>
+                <li>
+                <a href="/manual/install/install-sympa-distribution-freebsd.html">
+                  {% if page.path == 'manual/install/install-sympa-distribution-freebsd.md' %}<strong>{% endif %}
+                  FreeBSD Ports/Packages
+                  {% if page.path == 'manual/install/install-sympa-distribution-freebsd.md' %}</strong>{% endif %}
+                </a>
+                </li>
+                <li>
+                <a href="/manual/install/install-sympa-distribution-rpm.html">
+                  {% if page.path == 'manual/install/install-sympa-distribution-rpm.md' %}<strong>{% endif %}
+                  RPM package
+                  {% if page.path == 'manual/install/install-sympa-distribution-rpm.md' %}</strong>{% endif %}
+                </a>
+                </li>
+                <li>
+                <a href="/manual/install/install-sympa-distribution-source.html">
+                  {% if page.path == 'manual/install/install-sympa-distribution-source.md' %}<strong>{% endif %}
+                  Installing from source
+                  {% if page.path == 'manual/install/install-sympa-distribution-source.md' %}</strong>{% endif %}
+                </a>
+                </li>
+                </ol>
+              {% endif %}
+              </li>
+              <li>
+              <a href="/manual/install/install-dependent-modules.html">
+                {% if page.path == 'manual/install/install-dependent-modules.md' %}<strong>{% endif %}
+                Install dependent modules
+                {% if page.path == 'manual/install/install-dependent-modules.md' %}</strong>{% endif %}
+              </a>
+              </li>
+              <li>
+              <a href="/manual/install/generate-initial-configuration.html">
+                {% if page.path == 'manual/install/generate-initial-configuration.md' %}<strong>{% endif %}
+                Generate initial configuration
+                {% if page.path == 'manual/install/generate-initial-configuration.md' %}</strong>{% endif %}
+              </a>
+              </li>
+              <li>
+              <a href="/manual/install/setup-database.html">
+                {% if page.path == 'manual/install/setup-database.md' %}<strong>{% endif %}
+                Setup database
+                {% if page.path == 'manual/install/setup-database.md' %}</strong>{% endif %}
+              </a>
+              {% if page.path contains 'manual/install/setup-database' %}
+                <ol>
+                <li>
+                <a href="/manual/install/setup-database-mysql.html">
+                  {% if page.path == 'manual/install/setup-database-mysql.md' %}<strong>{% endif %}
+                  MySQL or MariaDB
+                  {% if page.path == 'manual/install/setup-database-mysql.md' %}</strong>{% endif %}
+                </a>
+                </li>
+                <li>
+                <a href="/manual/install/setup-database-oracle.html">
+                  {% if page.path == 'manual/install/setup-database-oracle.md' %}<strong>{% endif %}
+                  Oracle Database
+                  {% if page.path == 'manual/install/setup-database-oracle.md' %}</strong>{% endif %}
+                </a>
+                </li>
+                <li>
+                <a href="/manual/install/setup-database-postgresql.html">
+                  {% if page.path == 'manual/install/setup-database-postgresql.md' %}<strong>{% endif %}
+                  PostgreSQL
+                  {% if page.path == 'manual/install/setup-database-postgresql.md' %}</strong>{% endif %}
+                </a>
+                </li>
+                <li>
+                <a href="/manual/install/setup-database-sqlite.html">
+                  {% if page.path == 'manual/install/setup-database-sqlite.md' %}<strong>{% endif %}
+                  SQLite
+                  {% if page.path == 'manual/install/setup-database-sqlite.md' %}</strong>{% endif %}
+                </a>
+                </li>
+                </ol>
+              {% endif %}
+              </li>
+              <li>
+              <a href="/manual/install/configure-system-log.html">
+                {% if page.path == 'manual/install/configure-system-log.md' %}<strong>{% endif %}
+                Configure system log
+                {% if page.path == 'manual/install/configure-system-log.md' %}</strong>{% endif %}
+              </a>
+              </li>
+              <li>
+              <a href="/manual/install/configure-mail-server.html">
+                {% if page.path == 'manual/install/configure-mail-server.md' %}<strong>{% endif %}
+                Configure mail server
+                {% if page.path == 'manual/install/configure-mail-server.md' %}</strong>{% endif %}
+              </a>
+              {% if page.path contains 'manual/install/configure-mail-server' %}
+                <ol>
+                <li>
+                <a href="/manual/install/configure-mail-server-exim.html">
+                  {% if page.path == 'manual/install/configure-mail-server-exim.md' %}<strong>{% endif %}
+                  exim
+                  {% if page.path == 'manual/install/configure-mail-server-exim.md' %}</strong>{% endif %}
+                </a>
+                </li>
+                <li>
+                <a href="/manual/install/configure-mail-server-opensmtpd.html">
+                  {% if page.path == 'manual/install/configure-mail-server-opensmtpd.md' %}<strong>{% endif %}
+                  OpenSMTPD
+                  {% if page.path == 'manual/install/configure-mail-server-opensmtpd.md' %}</strong>{% endif %}
+                </a>
+                </li>
+                <li>
+                <a href="/manual/install/configure-mail-server-postfix.html">
+                  {% if page.path == 'manual/install/configure-mail-server-postfix.md' %}<strong>{% endif %}
+                  Postfix
+                  {% if page.path == 'manual/install/configure-mail-server-postfix.md' %}</strong>{% endif %}
+                </a>
+                </li>
+                <li>
+                <a href="/manual/install/configure-mail-server-sendmail.html">
+                  {% if page.path == 'manual/install/configure-mail-server-sendmail.md' %}<strong>{% endif %}
+                  Sendmail
+                  {% if page.path == 'manual/install/configure-mail-server-sendmail.md' %}</strong>{% endif %}
+                </a>
+                </li>
+                </ol>
+              {% endif %}
+              </li>
+              <li>
+              <a href="/manual/install/configure-http-server.html">
+                {% if page.path == 'manual/install/configure-http-server.md' %}<strong>{% endif %}
+                Configure HTTP server
+                {% if page.path == 'manual/install/configure-http-server.md' %}</strong>{% endif %}
+              </a>
+              {% if page.path contains 'manual/install/configure-http-server' %}
+                <ol>
+                <li>
+                <a href="/manual/install/configure-http-server-spawnfcgi.html">
+                  {% if page.path == 'manual/install/configure-http-server-spawnfcgi.md' %}<strong>{% endif %}
+                  nginx, Apache HTTP Server (2.4+)
+                  {% if page.path == 'manual/install/configure-http-server-spawnfcgi.md' %}</strong>{% endif %}
+                </a>
+                </li>
+                <li>
+                <a href="/manual/install/configure-http-server-apache.html">
+                  {% if page.path == 'manual/install/configure-http-server-apache.md' %}<strong>{% endif %}
+                  Apache HTTP Server (earlier)
+                  {% if page.path == 'manual/install/configure-http-server-apache.md' %}</strong>{% endif %}
+                </a>
+                </li>
+                <li>
+                <a href="/manual/install/configure-http-server-lighttpd.html">
+                  {% if page.path == 'manual/install/configure-http-server-lighttpd.md' %}<strong>{% endif %}
+                  lighttpd
+                  {% if page.path == 'manual/install/configure-http-server-lighttpd.md' %}</strong>{% endif %}
+                </a>
+                </li>
+                </ol>
+              {% endif %}
+              </li>
+              <li>
+              <a href="/manual/install/start-mailing-list-service.html">
+                {% if page.path == 'manual/install/start-mailing-list-service.md' %}<strong>{% endif %}
+                Start mailing list service
+                {% if page.path == 'manual/install/start-mailing-list-service.md' %}</strong>{% endif %}
+              </a>
+              </li>
+              <li>
+              <a href="/manual/install/automate-startup.html">
+                {% if page.path == 'manual/install/automate-startup.md' %}<strong>{% endif %}
+                Automate startup
+                {% if page.path == 'manual/install/automate-startup.md' %}</strong>{% endif %}
+              </a>
+              </li>
+              </ol>
+            {% endif %}
+            </li>
+            <li>
+            <a href="/manual/upgrade.html">
+              {% if page.path == 'manual/upgrade.md' %}<strong>{% endif %}
+              Upgrading Sympa
+              {% if page.path == 'manual/upgrade.md' %}</strong>{% endif %}
+            </a>
+            </li>
+            <li>
+            <a href="/manual/admin.html">
+              {% if page.path == 'manual/admin.md' %}<strong>{% endif %}
+              Administering Sympa
+              {% if page.path == 'manual/admin.md' %}</strong>{% endif %}
+            </a>
+            {% if page.path == 'manual/admin.md' or page.path contains 'manual/admin/' %}
+              <ol>
+              <li>
+              <a href="/manual/admin/services.html">
+                {% if page.path == 'manual/admin/services.md' %}<strong>{% endif %}
+                Managing services
+                {% if page.path == 'manual/admin/services.md' %}</strong>{% endif %}
+              </a>
+              </li>
+              <li>
+              <a href="/manual/admin/cli.html">
+                {% if page.path == 'manual/admin/cli.md' %}<strong>{% endif %}
+                Command line interface
+                {% if page.path == 'manual/admin/cli.md' %}</strong>{% endif %}
+              </a>
+              </li>
+              <li>
+              <a href="/manual/admin/list.html">
+                {% if page.path contains 'manual/admin/list' %}<strong>{% endif %}
+                Managing lists
+                {% if page.path contains 'manual/admin/list' %}</strong>{% endif %}
+              </a>
+              </li>
+              <li>
+              <a href="/manual/admin/web-interface.html">
+                {% if page.path == 'manual/admin/web-interface.md' %}<strong>{% endif %}
+                Listmaster portal on web interface
+                {% if page.path == 'manual/admin/web-interface.md' %}</strong>{% endif %}
+              </a>
+              </li>
+              </ol>
+            {% endif %}
+            </li>
+            <li>
+            <a href="/manual/customize.html">
+              {% if page.path contains 'manual/customize' %}
+                {% unless page.path contains 'manual/customize/basics' %}
+                <strong>
+                {% endunless %}
+              {% endif %}
+              Customizing Sympa
+              {% if page.path contains 'manual/customize' %}
+                {% unless page.path contains 'manual/customize/basics' %}
+                </strong>
+                {% endunless %}
+              {% endif %}
+            </a>
+            {% if page.path contains 'manual/customize' %}
+              <ol>
+              <li>
+              <a href="/manual/customize.html#customization-basics">
+                {% if page.path contains 'manual/customize/basics' %}<strong>{% endif %}
+                Customization basics
+                {% if page.path contains 'manual/customize/basics' %}</strong>{% endif %}
+              </a>
+              </li>
+              <li>
+              <a href="/manual/customize.html#costomizing-sympa-services">
+                ...
+              </a>
+              </li>
+              </ol>
+            {% endif %}
+            </li>
+          </ol>
+          
+          <p>Appendices</p>
+          <ol>  
+            <li>
+            <a href="/gpldoc/man/sympa_toc.1.html">
+              {% if page.path contains 'man/' %}<strong>{% endif %}
+              References
+              {% if page.path contains 'man/' %}</strong>{% endif %}
+            </a>
+            </li>
+            <li>
+            <a href="/manual/layout.html">
+              {% if page.path == 'manual/layout.md' %}<strong>{% endif %}
+              Directory layout
+              {% if page.path == 'manual/layout.md' %}</strong>{% endif %}
+            </a>
+            </li>
+            <li>
+            <a href="/gpldoc/manual-old/">
+              {% if page.path contains '/manual-old/' %}<strong>{% endif %}
+              Documentation on older versions
+              {% if page.path contains '/manual-old/' %}</strong>{% endif %}
+            </a>
+            </li>
+          </ol>
+        {% endif %}
+
+          <p>
+          <a href="/help/">
+            {% if page.path contains 'help/' %}<strong>{% endif %}
+            Sympa Help
+            {% if page.path contains 'help/' %}</strong>{% endif %}
+          </a>
+          </p>
+
+          <p></p>
+
+          <p>
+          <a href="/security/">
+            {% if page.path contains 'security/' %}<strong>{% endif %}
+            Security advisories
+            {% if page.path contains 'security/' %}</strong>{% endif %}
+          </a>
+          </p>
+
+        </nav>
+{% endif %}
+

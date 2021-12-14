@@ -247,11 +247,13 @@ var lang = 'en-US';
             <div id="loading"></div>
             <!-- aside_menu.tt2 -->
 <aside class="medium-3 columns">
+
+{% include aside.html %}
         
     </aside>
 <!-- end aside_menu.tt2 -->
 
-            <main id="content-inner" class="row"><a name="content-inner"></a>
+            <main id="content-inner" class="{% if aside_nav %}medium-9 columns{% else %}row{% endif %}"><a name="content-inner"></a>
                 
                 
 
