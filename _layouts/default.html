@@ -217,21 +217,33 @@ var lang = 'en-US';
 
                 <!-- login_menu.tt2 -->
 
-
-
+    <li class="">
+      <form method="get" id="searchform" action="https://duckduckgo.com/">
+        <fieldset form="searchform">
+          <span>
+            <input type="hidden" name="sites"
+             value="sympa-community.github.io"/>
+            <input type="hidden" name="k7" value="#ffffff"/>
+            <input type="hidden" name="k8" value="#222222"/>
+            <input type="hidden" name="k9" value="#00278e"/>
+            <input type="hidden" name="kx" value="#20692b"/>
+            <input type="hidden" name="kj" value="#fafafa"/>
+            <input type="hidden" name="kt" value="p"/>
+            <input type="text" name="q" placeholder="Search…"
+             aria-label="Search this site on DuckDuckGo" />
+            <button type="submit" title="Search">
+              <i class="fa fa-search"></i>
+            </button>
+          </span>
+        </fieldset>
+      </form>
+    </li>
 
     <li class="">
-        <form action="{{ site.github.repository_url }}/tree/master/{{ page.path }}" method="GET" autocomplete="off">
-            <fieldset><input type="hidden" name="csrftoken" value="" />
-                
-                <span>
-                    <button type="submit" name="action_login" value="Login">
-                        <i class="fa fa-code"></i>
-                        Page source
-                    </button>
-                </span>
-            </fieldset>
-        </form>
+        <a href="{{ site.github.repository_url }}/tree/master/{{ page.path }}"
+         title="View/edit source">
+            <i class="fa fa-code"></i>
+        </a>
     </li>
 <!-- end login_menu.tt2 -->
 
