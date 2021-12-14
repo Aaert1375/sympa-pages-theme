@@ -3,9 +3,9 @@
     <!-- main.tt2 -->
     <head>
         <meta charset="UTF-8" />
-        <meta name="generator" content="Sympa {{ sympa.version | default: "current" }}" />
+        <meta name="generator" content="Sympa {{ sympa.version }}" />
         <meta name="viewport"  content="width=device-width, initial-scale=1.0">
-        <title>{{ page.title | default: "Documentation" }} - Sympa, mailing list management software</title>
+        <title> {{ page.title | default: "Documentation" }} - {{ site.title }} </title>
 
         <!-- head_ui.tt2 -->
 <link rel="stylesheet" href="/static-sympa/js/jquery-ui/jquery-ui.css?v1.12.1" />
@@ -56,7 +56,7 @@ var lang = 'en-US';
 <script src="/static-sympa/js/jqplot/jqplot.canvasAxisTickRenderer.min.js?v1.0.8"></script>
 <script src="/static-sympa/js/jqplot/jqplot.canvasTextRenderer.min.js?v1.0.8"></script>
 <script src="/static-sympa/js/jquery-minicolors/jquery.minicolors.min.js?v2.3.1"></script>
-<script src="/static-sympa/js/sympa.js?v{{ sympa.version | default: "current" }}"></script>
+<script src="/static-sympa/js/sympa.js?v{{ sympa.version }}"></script>
 
 <!--[if lt IE 9]>
     <script type="text/javascript" src="/static-sympa/js/html5shiv/html5shiv.js?v3.7.2"></script>
@@ -67,63 +67,13 @@ var lang = 'en-US';
 
 <!-- end head_javascript.tt2 -->
 
-{% comment %}
+        {% comment %}
         <!-- RSS chanel -->
-                                    <link rel="alternate" type="application/xml" title="RSS Latest lists" href="{{ wwsympa_url | default: "/sympa" }}/rss/latest_lists?count=20"/>
-                <link rel="alternate" type="application/xml" title="RSS Active lists" href="{{ wwsympa_url | default: "/sympa" }}/rss/active_lists?count=20"/>
-{% endcomment %}
+                                    <link rel="alternate" type="application/xml" title="RSS Latest lists" href="{{ wwsympa_url }}/rss/latest_lists?count=20"/>
+                <link rel="alternate" type="application/xml" title="RSS Active lists" href="{{ wwsympa_url }}/rss/active_lists?count=20"/>
+        {% endcomment %}
 
-{% comment %} Customization  {% endcomment %}
-
-    <style>
-
-.pagetoc {
-    float: right;
-    clear: right;
-    max-width: 165px;
-    border: solid 1px #e0e0e0;
-    border-radius: 5px;
-    margin: 0.5em;
-    padding: 0.5em;
-    background-color: #fff;
-    font-size: 0.85em;
-    line-height: 1.5;
-}
-.pagetoc ul {
-    margin: 0;
-    padding: 0 0 0 2.0em;
-    -moz-padding-start: 2.0em;
-    -moz-padding-end: 0em;
-    -webkit-padding-start: 2.0em;
-    -webkit-padding-end: 0em;
-    padding-inline-start: 2.0em;
-    padding-inline-end: 0;
-}
-
-.toc-switch {
-    display: none;
-}
-.toc-switch ~ label {
-    display: block;
-    float: right;
-    clear: right;
-}
-.toc-switch ~ label:before {
-    content: '\25BE';
-}
-.toc-switch ~ p, .toc-switch ~ ul {
-    display: none;
-}
-.toc-switch:checked ~ label:before {
-    content: '\D7';
-}
-.toc-switch:checked ~ p, .toc-switch:checked ~ ul {
-    display: block;
-}
-
-    </style>
-
-{% comment %} End of customization  {% endcomment %}
+        {% include head-custom.html %}
 
     </head>
 
@@ -147,7 +97,7 @@ var lang = 'en-US';
     <div class="title-bar"
          data-responsive-toggle="sympa-top-bar" data-hide-for="medium">
         <span class="menu-text" aria-hidden="true">
-            <a href="{{ wwsympa_url | default: "/sympa" }}" title="{{ wwsympa_url | default: "/sympa" }}">
+            <a href="{{ wwsympa_url }}" title="{{ wwsympa_url }}">
                     <img src="/static-sympa/icons/logo_sympa.png" alt="SYMPA logo" />
                 </a>
         </span>
@@ -163,7 +113,7 @@ var lang = 'en-US';
         <ul class="top-bar-left medium-2 columns show-for-medium">
             <li class="name">
                 <span class="menu-text">
-                    <a href="{{ wwsympa_url | default: "/sympa" }}" title="{{ wwsympa_url | default: "/sympa" }}">
+                    <a href="/" title="{{ site.url }}">
                             <img src="/static-sympa/icons/logo_sympa.png" alt="SYMPA logo" />
                         </a>
                 </span>
@@ -178,7 +128,7 @@ var lang = 'en-US';
     
 
     <li class="">
-        <a href="/sympa/home">
+        <a href="/">
             <i class="fi-home"></i>  Home
         </a>
     </li>
@@ -190,33 +140,37 @@ var lang = 'en-US';
     
         
     
-    <li class="">
+    <li class="{% if page.path contains 'manual/' or page.path contains 'help/' or page.path contains 'security/' %}active{% endif %}">
         <a href="#">
-            <i class="fa fa-search-plus"></i> Search for List(s)
+            <i class="fa fa-book"></i> Docs
         </a>
         <ul class="vertical menu">
 
             
                 
             
-            <li class="">
-                <a href="/sympa/search_list_request">
-                    <i class="fa fa-search"></i> Search form
+            <li class="{% if page.path contains 'manual/' %}active{% endif %}">
+                <a href="/manual/">
+                    <i class="fa fa-book"></i> Sympa Administration Manual
                 </a>
             </li>
             
                 
             
-            <li class="">
-                <a class="heavyWork" href="/sympa/lists">
-                    <i class="fa fa-list"></i> Index of Lists
+            <li class="disabled">
+                <a href="/help/">
+                    <i class="fa fa-question-circle"></i> Sympa Help
+                    (coming later)
                 </a>
             </li>
             
                 
             
-            <li class=""><a href="/sympa/lists_categories" target=""><i class="fa fa-sitemap"></i> Browse lists by categories</a>
-
+            <li class="{% if page.path contains 'security/' %}active{% endif %}">
+                <a href="/security/">
+                    <i class="fa fa-shield"></i> Security Advisories
+                </a>
+            </li>
         </ul>
     </li>
 
@@ -224,26 +178,26 @@ var lang = 'en-US';
     
 
 
-    <li class="active">
+    <li class="{% if page.path contains 'community/' %}active{% endif %}">
         <a href="#">
-            <i class="fa fa-life-ring"></i> Support
+            <i class="fa fa-users"></i> Community
         </a>
         <ul class="vertical menu">
 
             
                 
             
-            <li class="active">
-                <a href="/sympa/help" title="Documentation">
-                    <i class="fa fa-book"></i> Documentation
+            <li class="{% if page.path contains 'community/lists' %}active{% endif %}">
+                <a href="/community/lists.html">
+                    <i class="fa fa-comments"></i> Mailing Lists
                 </a>
             </li>
             
                 
             
             <li class="">
-                <a href="/sympa/help/faq.html" title="Frequently asked questions">
-                    <i class="fa fa-question"></i> FAQ
+                <a href="https://github.com/sympa-community/">
+                    <i class="fa fa-github-square"></i> GitHub
                 </a>
             </li>
             
@@ -266,14 +220,14 @@ var lang = 'en-US';
 
 
 
-<li class="">
-        <form action="/sympa" method="POST" autocomplete="off">
-            <fieldset><input type="hidden" name="csrftoken" value="2adbde8d7fa66b02d6debfe27e4ad88a" />
+    <li class="">
+        <form action="{{ site.github.repository_url }}/tree/master/{{ page.path }}" method="GET" autocomplete="off">
+            <fieldset><input type="hidden" name="csrftoken" value="" />
                 
                 <span>
                     <button type="submit" name="action_login" value="Login">
-                        <i class="fa fa-user"></i>
-                        Login
+                        <i class="fa fa-code"></i>
+                        Page source
                     </button>
                 </span>
             </fieldset>
@@ -320,25 +274,9 @@ var lang = 'en-US';
             
             <!-- help.tt2 -->
 <article class="doc">
-{% comment %} Customization {% endcomment %}
 
-    {% comment %} allejo/jekyll-toc {% endcomment -%}
-    <nav class="pagetoc">
-      <input type="checkbox" class="toc-switch" id="toc-switch" />
-      <label for="toc-switch" title="ToC"></label>
-      <p><b>{{ page.title }}</b></p>
-      {% if page.path contains 'man/' %}
-        {% include toc.html html=content h_min=1 h_max=4 %}
-      {% elsif page.path contains 'help/' %}
-        {% include toc.html html=content h_min=3 h_max=7 %}
-      {% else %}
-        {% include toc.html html=content h_min=2 h_max=4 %}
-      {% endif %}
-    </nav>
+{% include content.html %}
 
-    {{ content }}
-
-{% comment %} End of customization {% endcomment %}
 </article>
 <!-- end help.tt2 -->
 
@@ -352,7 +290,7 @@ var lang = 'en-US';
             <!-- footer.tt2 -->
 <footer role="contentinfo">
     <img src="/static-sympa/icons/favicon_sympa.png" alt="SYMPA logo" width="20" height="20"/>
-    <a href="https://www.sympa.org">Powered by Sympa {{ sympa.version | default: "current" }}</a>
+    <a href="https://www.sympa.org">Powered by Sympa {{ sympa.version }}</a>
 </footer>
 <!-- end footer.tt2 -->
 
