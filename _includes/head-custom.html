@@ -9,6 +9,25 @@
 {% endcomment %}
 
 <style>
+    {% comment %} Repair ugly font by original CSS and so on {% endcomment %}
+    blockquote {
+      border-left:1px solid #e5e5e5;
+      margin:0;
+      padding:0 0 0 20px;
+      {% comment %} font-style:italic; {% endcomment %}
+    }
+    code, pre {
+      font-family:Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal, Consolas, Liberation Mono, DejaVu Sans Mono, Courier New, monospace;
+      color: inherit;
+      background: #f8f8f8;
+    }
+    pre {
+      padding:8px 15px;
+      border-radius:5px;
+      border:1px solid #e5e5e5;
+      overflow-x: auto;
+    }
+
     {% comment %} Aside nav (see aside.html) {% endcomment %}
     nav.toc {
         white-space: nowrap;
