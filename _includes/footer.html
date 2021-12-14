@@ -1,0 +1,17 @@
+{% if page.path contains 'man/' %}
+  <p>
+    The content of this page is automatically generated from the source distribution of Sympa.  For details about this document see original source file.
+  </p>
+{% elsif page.license %}
+  <p>
+    {{ page.license }}
+  </p>
+{% else %}
+  <p>
+    <a href="https://creativecommons.org/licenses/by-sa/4.0/">
+      <img alt="CC BY-SA 4.0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png">
+    </a>
+    Unless otherwise specified, the contents of this document are licensed under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons - Attribution - ShareAlike</a> license.  For more details see <a href="/LICENSE.html">LICENSE</a> and <a href="/AUTHORS.html">AUTHORS</a>.
+  </p>
+{% endif %}
+

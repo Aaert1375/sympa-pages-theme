@@ -5,7 +5,7 @@
         <meta charset="UTF-8" />
         <meta name="generator" content="Sympa {{ sympa.version }}" />
         <meta name="viewport"  content="width=device-width, initial-scale=1.0">
-        <title> {{ page.title | default: "Documentation" }} - {{ site.title }} </title>
+        <title> {{ page.title | default: "Documentation" }} - {{ site.title | default: site.github.title }} </title>
 
         <!-- head_ui.tt2 -->
 <link rel="stylesheet" href="/static-sympa/js/jquery-ui/jquery-ui.css?v1.12.1" />
@@ -238,7 +238,11 @@ var lang = 'en-US';
             </ul>
         </menu>
     </nav>
-    <h1 class="row">Mailing lists service</h1>
+  {% if page.path == 'index.md' %}
+    <h1 class="row"> {{ page.title | default: "Documentation" }} </h1>
+  {% else  %}
+    {% include headding.html %}
+  {% endif %}
 </header>
 <!-- end header.tt2 -->
 
@@ -293,6 +297,9 @@ var lang = 'en-US';
 <footer role="contentinfo">
     <img src="/static-sympa/icons/favicon_sympa.png" alt="SYMPA logo" width="20" height="20"/>
     <a href="https://www.sympa.org">Powered by Sympa {{ sympa.version }}</a>
+
+  {% include footer.html %}
+
 </footer>
 <!-- end footer.tt2 -->
 
