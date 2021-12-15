@@ -119,4 +119,11 @@
 
 <link rel="stylesheet" href="/static-sympa/css/syntax-github.css" />
 
+<style>
+    {% comment %} Override styles for syntax highlighting {% endcomment %}
+    div.language-bash .highlight span.c {
+        font-style: inherit;
+    }
+</style>
+
 <!-- end custom-head.html -->
