@@ -1,0 +1,79 @@
+    <li class="">
+        <a href="/">
+            <i class="fi-home"></i>  Home
+        </a>
+    </li>
+    
+    <li class="{% if page.path contains 'manual/' or page.path contains 'help/' or page.path contains 'security/' %}active{% endif %}">
+        <a href="#">
+            <i class="fa fa-book"></i> Docs
+        </a>
+        <ul class="vertical menu">
+            <li class="{% if page.path contains 'manual/' %}active{% endif %}">
+                <a href="/manual/">
+                    <i class="fa fa-book"></i> Sympa Administration Manual
+                </a>
+            </li>
+
+            <li class="disabled">
+                <a href="{% comment %}/help/{% endcomment %}">
+                    <i class="fa fa-question-circle"></i> Sympa Help
+                    (coming later)
+                </a>
+            </li>
+
+            <li class="{% if page.path contains 'security/' %}active{% endif %}">
+                <a href="/security/">
+                    <i class="fa fa-shield"></i> Security Advisories
+                </a>
+            </li>
+        </ul>
+    </li>
+
+    <li class="{% if page.path contains 'community/' %}active{% endif %}">
+        <a href="#">
+            <i class="fa fa-users"></i> Community
+        </a>
+        <ul class="vertical menu">
+            <li class="{% if page.path contains 'community/lists' %}active{% endif %}">
+                <a href="/community/lists.html">
+                    <i class="fa fa-comments"></i> Mailing Lists
+                </a>
+            </li>
+
+            <li class="">
+                <a href="https://github.com/sympa-community/">
+                    <i class="fa fa-github-square"></i> GitHub
+                </a>
+            </li>
+        </ul>
+    </li>
+
+    <li class="">
+      <form method="get" id="searchform" action="https://duckduckgo.com/">
+        <fieldset form="searchform">
+          <span>
+            <input type="hidden" name="sites"
+             value="sympa-community.github.io"/>
+            <input type="hidden" name="k7" value="#ffffff"/>
+            <input type="hidden" name="k8" value="#222222"/>
+            <input type="hidden" name="k9" value="#00278e"/>
+            <input type="hidden" name="kx" value="#20692b"/>
+            <input type="hidden" name="kj" value="#fafafa"/>
+            <input type="hidden" name="kt" value="p"/>
+            <input type="text" name="q" placeholder="Search…"
+             aria-label="Search this site on DuckDuckGo" />
+            <button type="submit" title="Search">
+              <i class="fa fa-search"></i>
+            </button>
+          </span>
+        </fieldset>
+      </form>
+    </li>
+
+    <li class="">
+        <a href="{{ site.github.repository_url }}/tree/master/{{ page.path }}"
+         title="View/edit source">
+            <i class="fa fa-code"></i>
+        </a>
+    </li>
