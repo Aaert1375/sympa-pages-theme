@@ -108,12 +108,26 @@
     }
 
     {% comment %} Search form in top-bar {% endcomment %}
-    menu li input[type=text], menu li button {
+    div.searchform input[type=text] {
+        background-color: transparent;
         height: 1.5rem;
         margin: 0;
+        padding-left: 1.5rem;
     }
-    menu li input[type=text] {
-        width: 70%;
+    div.searchform {
+        background-color: #ffffff;
+        display: inline-block;
+        height: 1.5rem;
+        line-height: 1.5;
+        position: relative;
+    }
+    div.searchform:before {
+        color: #005ab2;
+        content: '\F002'; /* fa-search */
+        font-family: FontAwesome;
+        left: 0.5rem;
+        position: absolute;
+        top: 0.125rem;
     }
 </style>
 
