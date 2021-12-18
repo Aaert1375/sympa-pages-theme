@@ -1,8 +1,8 @@
-{% if page.path == 'index.md' %}
-    <h1 class="row"> {{ page.title | default: "Documentation" }} </h1>
+{% if page.layout == 'home' %}
+    <h1 class="row"> {{ page.title | default: site.github.title }} </h1>
 {% elsif page.path contains 'man/' %}
     <h1 class="row"> {{ site.title | default: site.github.title }} </h1>
-{% else %}
+{% elsif page.prev or page.up or page.next %}
     <nav>
     <p style='text-align: center;'>
     {% if page.prev %}<a href="{{ page.prev | replace: ".md", ".html" }}" title="Prev">&#x25c0;</a>{% else %}<span title="Prev">&#x25c0;</span>{% endif %}
@@ -10,5 +10,7 @@
     {% if page.next %}<a href="{{ page.next | replace: ".md", ".html" }}" title="Next">&#x25b6;</a>{% else %}<span title="Next">&#x25b6;</span>{% endif %}
     </p>
     </nav>
+{% else %}
+    <h1 class="row"> {{ page.title | default: "Documentation" }} </h1>
 {% endif %}
     
