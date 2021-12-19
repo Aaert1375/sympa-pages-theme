@@ -13,4 +13,11 @@
   {% endif %}
 </nav>
 
+{% comment %} cf. headding.html: In case the page is a post {% endcomment %}
+{% if pageTitle %}
+  <h1>
+    {{ pageTitle }}
+  </h1>
+{% endif %}
+
 {{ content }}

@@ -1,7 +1,32 @@
+{% comment %} Get indexes in the posts, if it applies {% endcomment %}
+{% for post in site.posts %}
+  {% if post.url == page.url %}
+    {% assign maxIndex = forloop.length | minus: 1 %}
+    {% assign currIndex = forloop.index0 %}
+    {% if currIndex > 0 %}
+      {% assign prevIndex = currIndex | minus: 1 %}
+    {% endif %}
+    {% if currIndex < maxIndex %}
+      {% assign nextIndex = currIndex | plus: 1 %}
+    {% endif %}
+
+    {% comment %} Used in content.html {% endcomment %}
+    {% assign pageTitle = page.title %}
+  {% endif %}
+{% endfor %}
+
 {% if page.layout == 'home' %}
     <h1 class="row"> {{ page.title | default: site.github.title }} </h1>
 {% elsif page.path contains 'man/' %}
     <h1 class="row"> {{ site.title | default: site.github.title }} </h1>
+{% elsif prevIndex or nextIndex %}
+    <nav>
+    <p style='text-align: center;'>
+    {% if prevIndex %}<a href="{{ site.posts[prevIndex].url }}" title="Prev">&#x25c0;</a>{% else %}<span title="Prev">&#x25c0;</span>{% endif %}
+    <a href="{{ "/" | relative_url }}" title="Up">&#x23eb;</a>
+    {% if nextIndex %}<a href="{{ site.posts[nextIndex].url }}" title="Next">&#x25b6;</a>{% else %}<span title="Next">&#x25b6;</span>{% endif %}
+    </p>
+    </nav>
 {% elsif page.prev or page.up or page.next %}
     <nav>
     <p style='text-align: center;'>

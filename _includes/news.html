@@ -9,7 +9,7 @@
   {{ post.content }}
 {% endfor %}
 
-{% if site.posts | size %}
+{% if site.posts.size > 10 %}
   <hr/>
   <p>
     <a href="{{ site.github.owner_url }}/sympa/releases">
