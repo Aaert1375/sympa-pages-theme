@@ -8,6 +8,8 @@
     {% include toc.html html=content h_min=1 h_max=4 %}
   {% elsif page.path contains 'help/' %}
     {% include toc.html html=content h_min=3 h_max=7 %}
+  {% elsif page.path == 'index.md' %}
+    {% include toc.html html=content h_min=1 h_max=1 %}
   {% else %}
     {% include toc.html html=content h_min=2 h_max=4 %}
   {% endif %}
