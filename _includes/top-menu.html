@@ -1,9 +1,34 @@
-    <li class="">
+    <li class="{% if site.baseurl == '' and page.path == 'index.md' %}active{% endif %}">
         <a href="/">
             <i class="fi-home"></i>  Home
         </a>
     </li>
-    
+
+    <li class="{% if site.baseurl == '/sympa' %}active{% endif %}">
+        <a href="#">
+            <i class="fa fa-info-circle"></i> About
+        </a>
+        <ul class="vertical menu">
+            <li class="{% if site.baseurl == '/sympa' and page.path contains 'README' %}active{% endif %}">
+                <a href="/sympa/">
+                    <i class="fa fa-info-circle"></i> About Sympa
+                </a>
+            </li>
+
+            <li class="">
+                <a href="https://github.com/sympa-community/sympa/releases/latest">
+                    <i class="fa fa-download"></i> Download Source
+                </a>
+            </li>
+
+            <li class="{% if site.baseurl == '/sympa' and page.path contains 'CONTRIBUTING' %}active{% endif %}">
+                <a href="/sympa/CONTRIBUTING.html">
+                    <i class="fa fa-gift"></i> Contributing to Sympa
+                </a>
+            </li>
+        </ul>
+    </li>
+
     <li class="{% if page.path contains 'manual/' or page.path contains 'help/' or page.path contains 'security/' %}active{% endif %}">
         <a href="#">
             <i class="fa fa-book"></i> Docs
