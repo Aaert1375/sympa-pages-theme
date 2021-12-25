@@ -1,4 +1,4 @@
-{% if page.path contains 'man/' %}
+{% if page.path contains 'man/' or page.path contains 'manual-old/' or site.baseurl == '/sympa' %}
   <p>
     The content of this page is automatically generated from the source distribution of Sympa.  For details about this document see original source file.
   </p>
