@@ -1,3 +1,12 @@
+{% if page.path == 'docs.md' or page.path contains 'manual/' or page.path contains 'help/' or page.path contains 'man/' or page.path contains 'security/' %}
+    {% assign asideNav = true %}
+    {% assign h1Class = 'medium-offset-3 medium-9 columns' %}
+    {% assign mainClass = 'medium-9 columns' %}
+{% else %}
+    {% assign h1Class = 'row' %}
+    {% assign mainClass = 'row' %}
+{% endif %}
+
 {% comment %} Get indexes in the posts, if it applies {% endcomment %}
 {% for post in site.posts %}
   {% if post.url == page.url %}
@@ -15,12 +24,14 @@
   {% endif %}
 {% endfor %}
 
-{% if page.layout == 'home' %}
-    <h1 class="row"> {{ page.title | default: site.github.title }} </h1>
+{% if page.path == 'index.md' %}
+    <h1 class="{{ h1Class }}"> {{ page.title | default: "Documentation" }} </h1>
+{% elsif page.layout == 'home' %}
+    <h1 class="{{ h1Class }}"> {{ page.title | default: site.github.title }} </h1>
 {% elsif page.path contains 'man/' %}
-    <h1 class="row"> {{ site.title | default: site.github.title }} </h1>
+    <h1 class="{{ h1Class }}"> {{ site.title | default: site.github.title }} </h1>
 {% elsif prevIndex or nextIndex %}
-    <nav>
+    <nav class="{{ h1Class }}">
     <p style='text-align: center;'>
     {% if prevIndex %}<a href="{{ site.posts[prevIndex].url }}" title="Prev">&#x25c0;</a>{% else %}<span title="Prev">&#x25c0;</span>{% endif %}
     <a href="{{ "/" | relative_url }}" title="Up">&#x23eb;</a>
@@ -28,7 +39,7 @@
     </p>
     </nav>
 {% elsif page.prev or page.up or page.next %}
-    <nav>
+    <nav class="{{ h1Class }}">
     <p style='text-align: center;'>
     {% if page.prev %}<a href="{{ page.prev | replace: ".md", ".html" }}" title="Prev">&#x25c0;</a>{% else %}<span title="Prev">&#x25c0;</span>{% endif %}
     {% if page.up %}<a href="{{ page.up | replace: ".md", ".html" }}" title="Up">&#x23eb;</a>{% else %}<span title="Up">&#x23eb;</span>{% endif %}
@@ -36,6 +47,6 @@
     </p>
     </nav>
 {% else %}
-    <h1 class="row"> {{ page.title | default: "Documentation" }} </h1>
+    <h1 class="{{ h1Class }}"> {{ page.title | default: "Documentation" }} </h1>
 {% endif %}
     

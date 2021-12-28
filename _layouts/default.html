@@ -132,11 +132,9 @@ var lang = 'en-US';
             </ul>
         </menu>
     </nav>
-  {% if page.path == 'index.md' %}
-    <h1 class="row"> {{ page.title | default: "Documentation" }} </h1>
-  {% else  %}
-    {% include headding.html %}
-  {% endif %}
+
+  {% include headding.html %}
+
 </header>
 <!-- end header.tt2 -->
 
@@ -151,7 +149,7 @@ var lang = 'en-US';
     </aside>
 <!-- end aside_menu.tt2 -->
 
-            <main id="content-inner" class="{% if aside_nav %}medium-9 columns{% else %}row{% endif %}"><a name="content-inner"></a>
+            <main id="content-inner" class="{{ mainClass }}"><a name="content-inner"></a>
                 
                 
 

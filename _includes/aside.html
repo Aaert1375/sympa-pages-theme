@@ -1,5 +1,4 @@
-{% if page.path == 'docs.md' or page.path contains 'manual/' or page.path contains 'help/' or page.path contains 'man/' or page.path contains 'security/' %}
-    {% assign aside_nav = true %}
+{% if asideNav %}
 
         <nav class="toc show-for-medium">
           <p>
