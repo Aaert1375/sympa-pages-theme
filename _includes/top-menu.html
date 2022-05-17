@@ -55,7 +55,7 @@
         </ul>
     </li>
 
-    <li class="{% if page.path contains 'community/' %}active{% endif %}">
+    <li class="{% if page.path contains 'community/' or site.baseurl == '/sympa-contribs' %}active{% endif %}">
         <a href="#">
             <i class="fa fa-users"></i> Community
         </a>
@@ -69,6 +69,12 @@
             <li class="">
                 <a href="https://github.com/sympa-community/">
                     <i class="fa fa-github-square"></i> GitHub
+                </a>
+            </li>
+
+            <li class="{% if site.baseurl == '/sympa-contribs' %}active{% endif %}">
+                <a href="/sympa-contribs/">
+                    <i class="fa fa-gift"></i> sympa-contribs
                 </a>
             </li>
         </ul>
