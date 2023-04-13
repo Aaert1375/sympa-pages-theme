@@ -8,6 +8,9 @@
 <!-- link rel="shortcut icon" type="image/x-icon" href="{{ '/favicon.ico' | relative_url }}" -->
 {% endcomment %}
 
+{% comment %} Use brand icon, GitHub etc. {% endcomment %}
+<link rel="stylesheet" href="/static-sympa/fonts/font-awesome/css/brands.css" />
+
 <style>
     {% comment %} Complementary styles for documentation {% endcomment %}
     .doc blockquote {
@@ -127,7 +130,7 @@
     div.searchform:before {
         color: #005ab2;
         content: '\F002'; /* fa-search */
-        font-family: FontAwesome;
+        font-family: 'Font Awesome 6 Free';
         left: 0.5rem;
         position: absolute;
         top: 0.125rem;
