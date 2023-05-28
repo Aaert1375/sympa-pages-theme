@@ -326,10 +326,15 @@
         {% endif %}
 
           <p>
+          {% comment %}
           <a href="/help/">
             {% if page.path contains 'help/' %}<strong>{% endif %}
             Sympa Help
             {% if page.path contains 'help/' %}</strong>{% endif %}
+          </a>
+          {% endcomment %}
+          <a href="">
+            Sympa Help (coming later)
           </a>
           </p>
 
